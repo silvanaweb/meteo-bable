@@ -12,14 +12,15 @@ export type WeatherViewType = WeatherInfo & { id: Places };
 
 type Props = {
   weatherInfo: WeatherViewType | null;
+  loading?: boolean;
 };
-const WeatherView: React.FC<Props> = ({ weatherInfo }) => {
+const WeatherView: React.FC<Props> = ({ loading, weatherInfo }) => {
   const winSize: WinSize = useWindowSize();
 
   return (
     weatherInfo && (
       <div className="content-container">
-        <div className="WeatherView">
+        <div className={`WeatherView ${loading ? "WeatherView--hide" : ""}`}>
           <img
             src={getLocalImage(
               weatherInfo.id,

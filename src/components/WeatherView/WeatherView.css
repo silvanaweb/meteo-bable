@@ -4,6 +4,11 @@
   transition: opacity 300ms ease-in-out;
 }
 
+.WeatherView.WeatherView--hide {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
 .WeatherView__image {
   max-width: 100%;
 }

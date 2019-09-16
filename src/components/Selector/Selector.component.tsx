@@ -4,14 +4,16 @@ import Select from "react-select";
 export type SelectorOption = { value: string; label: string };
 
 export type SelectorProps = {
-  options: Array<SelectorOption>;
-  onChange: (option: any) => void;
   defaultOption?: SelectorOption;
+  loading?: boolean;
+  onChange: (option: any) => void;
+  options: Array<SelectorOption>;
 };
 const Selector: React.FC<SelectorProps> = ({
+  defaultOption = null,
+  loading = false,
   onChange,
-  options,
-  defaultOption = null
+  options
 }) => {
   const [selectedOption, setSelectedOption] = React.useState<SelectorOption>();
 
@@ -33,6 +35,7 @@ const Selector: React.FC<SelectorProps> = ({
     <div className="content-container">
       <h3 className="text-align--center">Select a city</h3>
       <Select
+        isDisabled={loading}
         onChange={handleSelectedOption}
         options={options}
         placeholder="Select a location"
