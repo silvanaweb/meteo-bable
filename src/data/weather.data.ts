@@ -18,7 +18,7 @@ export function getWeatherFromLocation(
         location: "London",
         summary: "Rainy days",
         temperature: 20,
-        icon: "rain"
+        icon: "RAIN"
       });
     }, 2000);
   });

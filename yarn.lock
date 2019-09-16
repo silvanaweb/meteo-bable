@@ -8323,7 +8323,7 @@ react-dev-utils@^9.0.3:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom@^16.9.0:
+react-dom@^16.0.0, react-dom@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
   integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
@@ -8432,6 +8432,15 @@ react-select@^3.0.4:
     react-input-autosize "^2.2.1"
     react-transition-group "^2.2.1"
 
+react-skycons@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-skycons/-/react-skycons-0.7.0.tgz#47daedc174721e39e1e7d6e702c7d929374f23cb"
+  integrity sha512-aPd1c/tliy4SGAvkn6h9UzDr1+7ln3Z8njbO+FcbNHqTo/juUjllMTc6vqryvEPTNvAEVt187KOf8w1L3DdVdA==
+  dependencies:
+    react "^16.0.0"
+    react-dom "^16.0.0"
+    skycons "^1.0.0"
+
 react-test-renderer@^16.0.0-0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.9.0.tgz#7ed657a374af47af88f66f33a3ef99c9610c8ae9"
@@ -8452,7 +8461,7 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.9.0:
+react@^16.0.0, react@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
@@ -9114,6 +9123,11 @@ sisteransi@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.3.tgz#98168d62b79e3a5e758e27ae63c4a053d748f4eb"
   integrity sha512-SbEG75TzH8G7eVXFSN5f9EExILKfly7SUvVY5DhhYLvfhKqhDFY0OzevWa/zwak0RLRfWS5AvfMWpd9gJvr5Yg==
+
+skycons@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/skycons/-/skycons-1.0.0.tgz#afb160c5901470aae84676fbc38bbd7dd5b69d8f"
+  integrity sha1-r7FgxZAUcKroRnb7w4u9fdW2nY8=
 
 slash@^1.0.0:
   version "1.0.0"
