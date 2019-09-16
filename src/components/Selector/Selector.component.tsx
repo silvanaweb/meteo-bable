@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Select from "react-select";
 
 export type SelectorOption = { value: string; label: string };
@@ -6,13 +6,28 @@ export type SelectorOption = { value: string; label: string };
 type Props = {
   options: Array<SelectorOption>;
   onChange: (location: any) => void;
+  defaultOption?: SelectorOption;
 };
-const Selector: React.FC<Props> = ({ onChange, options }) => {
-  const [selectedOption, setSelectedOption] = React.useState();
+const Selector: React.FC<Props> = ({
+  onChange,
+  options,
+  defaultOption = null
+}) => {
+  const [selectedOption, setSelectedOption] = React.useState<SelectorOption>();
 
-  const handleSelectedOption = (selection: any) => {
-    setSelectedOption(selection);
-    onChange(selection);
+  useEffect(() => {
+    if (defaultOption) {
+      const aOption = options.find(x => x.value === defaultOption.value);
+      if (aOption) {
+        setSelectedOption(aOption);
+        onChange({ ...aOption });
+      }
+    }
+  }, [options]);
+
+  const handleSelectedOption = (sOption: any) => {
+    setSelectedOption(sOption);
+    onChange({ ...sOption });
   };
   return (
     <div className="content-container">

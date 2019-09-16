@@ -42,6 +42,7 @@ class CurrentWeather extends React.Component<Props, State> {
           <Selector
             onChange={this.handleLocationChange}
             options={locationOptions}
+            defaultOption={{ value: "paris", label: "Paris" }}
           />
         </div>
 
