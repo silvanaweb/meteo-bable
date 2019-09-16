@@ -1,0 +1,20 @@
+.CheckButton {
+  background-color: var(--secondary-color);
+  border-radius: 26px;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  padding: var(--s-size) var(--l-size);
+}
+
+.CheckButton--checked {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.CheckButton:disabled {
+  color: var(--light-grey);
+}
+.CheckButton--checke:disabled {
+  background-color: var(--light-grey);
+}

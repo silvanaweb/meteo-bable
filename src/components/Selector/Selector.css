@@ -1,0 +1,9 @@
+.LocationSelector__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.LocationSelector__item {
+  margin: 0 0.4rem 0.8rem;
+}
