@@ -11,6 +11,9 @@ import {
   getOptionsFromMap
 } from "../../data/location.data";
 import { getWeatherFromLocation } from "../../data/weather.data";
+import { withRememberOption } from "../Helpers/RememberOption";
+
+const SelectorWithMemory = withRememberOption(Selector);
 
 type State = {
   locationOptions: Array<SelectorOption>;
@@ -39,10 +42,9 @@ class CurrentWeather extends React.Component<Props, State> {
     return (
       <>
         <div className="pb--xl">
-          <Selector
+          <SelectorWithMemory
             onChange={this.handleLocationChange}
             options={locationOptions}
-            defaultOption={{ value: "paris", label: "Paris" }}
           />
         </div>
 

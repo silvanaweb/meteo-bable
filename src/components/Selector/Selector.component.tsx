@@ -3,12 +3,12 @@ import Select from "react-select";
 
 export type SelectorOption = { value: string; label: string };
 
-type Props = {
+export type SelectorProps = {
   options: Array<SelectorOption>;
-  onChange: (location: any) => void;
+  onChange: (option: any) => void;
   defaultOption?: SelectorOption;
 };
-const Selector: React.FC<Props> = ({
+const Selector: React.FC<SelectorProps> = ({
   onChange,
   options,
   defaultOption = null
