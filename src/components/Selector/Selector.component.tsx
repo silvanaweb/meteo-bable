@@ -1,16 +1,13 @@
 import React from "react";
 import Select from "react-select";
 
-const options = [
-  { value: "london", label: "London" },
-  { value: "paris", label: "Paris" },
-  { value: "sydney", label: "Sydney" }
-];
+export type SelectorOption = { value: string; label: string };
 
 type Props = {
+  options: Array<SelectorOption>;
   onChange: (location: any) => void;
 };
-const LocationSelector: React.FC<Props> = ({ onChange }) => {
+const Selector: React.FC<Props> = ({ onChange, options }) => {
   const [selectedOption, setSelectedOption] = React.useState();
 
   const handleSelectedOption = (selection: any) => {
@@ -30,4 +27,4 @@ const LocationSelector: React.FC<Props> = ({ onChange }) => {
   );
 };
 
-export { LocationSelector };
+export { Selector };

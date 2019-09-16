@@ -1,3 +1,5 @@
+import { getObjectKeys } from "../utils/object";
+
 // This file provide the location DataCue, that means city and position.
 // If the cities were a user input, we would have used an api call to a coordinate locator.
 // Because we know the cities, we can hardcode their coordinates in a dictionary.
@@ -9,7 +11,7 @@ export type Location = {
   latitude: number;
   longitude: number;
 };
-export type LocationsMap = { [key in Places]: Location };
+export type LocationsMap = Record<Places, Location>;
 
 const locations: LocationsMap = {
   london: {
@@ -42,3 +44,9 @@ const locations: LocationsMap = {
 export function getLocations() {
   return { ...locations };
 }
+
+export const getOptionsFromMap = (locationsMap: LocationsMap) =>
+  getObjectKeys(locationsMap).map((key: Places) => ({
+    value: key,
+    label: locationsMap[key].name
+  }));
