@@ -7,9 +7,11 @@ import {
   Places,
   getOptionsFromMap
 } from "../../data/location.data";
+import { getWeatherFromLocation, WeatherInfo } from "../../data/weather.data";
 
 type State = {
   locationOptions: Array<SelectorOption>;
+  weatherInfo: WeatherInfo | null;
 };
 type Props = {};
 
@@ -19,7 +21,8 @@ class CurrentWeather extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      locationOptions: []
+      locationOptions: [],
+      weatherInfo: null
     };
   }
 
@@ -29,7 +32,7 @@ class CurrentWeather extends React.Component<Props, State> {
   }
 
   render() {
-    const { locationOptions } = this.state;
+    const { locationOptions, weatherInfo } = this.state;
     return (
       <>
         <div className="pb--xl">
@@ -39,16 +42,24 @@ class CurrentWeather extends React.Component<Props, State> {
           />
         </div>
 
-        <WeatherView />
+        <WeatherView weatherInfo={weatherInfo} />
       </>
     );
   }
 
-  handleLocationChange = (locationOption: SelectorOption) => {
+  handleLocationChange = async (locationOption: SelectorOption) => {
     if (locationOption.value) {
       const locationKey: Places = locationOption.value as Places;
       const location: Location = this.locationsMap[locationKey];
       console.log(JSON.stringify(location));
+      // fetch and set weather info
+      const info = await getWeatherFromLocation(
+        location.latitude,
+        location.longitude
+      );
+      this.setState({
+        weatherInfo: { ...info, location: location.name }
+      });
     }
   };
 }
