@@ -10,13 +10,17 @@ class CurrentWeather extends React.Component<Props, State> {
     return (
       <>
         <div className="pb--xl">
-          <LocationSelector />
+          <LocationSelector onChange={this.handleLocationChange} />
         </div>
 
         <WeatherView />
       </>
     );
   }
+
+  handleLocationChange = (location: any) => {
+    console.log(location.value);
+  };
 }
 
 export { CurrentWeather };
