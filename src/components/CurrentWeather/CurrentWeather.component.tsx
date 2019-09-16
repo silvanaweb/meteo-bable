@@ -14,6 +14,7 @@ import {
 } from "../../data/location.data";
 import { getWeatherFromLocation } from "../../data/weather.data";
 import { withRememberOption } from "../Helpers/RememberOption";
+import { ErrorView } from "../ErrorView/ErrorView.component";
 import { colors } from "../../theme/colors";
 
 const SelectorWithMemory = withRememberOption(Selector);
@@ -22,6 +23,7 @@ type State = {
   locationOptions: Array<SelectorOption>;
   weatherInfo: WeatherViewType | null;
   loading: boolean;
+  error: string | null;
 };
 type Props = {};
 
@@ -33,7 +35,8 @@ class CurrentWeather extends React.Component<Props, State> {
     this.state = {
       locationOptions: [],
       weatherInfo: null,
-      loading: false
+      loading: false,
+      error: null
     };
   }
 
@@ -43,7 +46,7 @@ class CurrentWeather extends React.Component<Props, State> {
   }
 
   render() {
-    const { loading, locationOptions, weatherInfo } = this.state;
+    const { error, loading, locationOptions, weatherInfo } = this.state;
     return (
       <>
         <div className="pb--xl">
@@ -54,13 +57,14 @@ class CurrentWeather extends React.Component<Props, State> {
             title="Select a city"
           />
         </div>
-
-        <div style={WeatherContainerStyle}>
-          <div style={spinnerStyle}>
-            <PushSpinner size={50} color={colors.primary} loading={loading} />
+        <ErrorView message={error}>
+          <div style={WeatherContainerStyle}>
+            <div style={spinnerStyle}>
+              <PushSpinner size={50} color={colors.primary} loading={loading} />
+            </div>
+            <WeatherView weatherInfo={weatherInfo} loading={loading} />
           </div>
-          <WeatherView weatherInfo={weatherInfo} loading={loading} />
-        </div>
+        </ErrorView>
       </>
     );
   }
@@ -71,16 +75,24 @@ class CurrentWeather extends React.Component<Props, State> {
       const location: Location = this.locationsMap[locationKey];
       console.log(JSON.stringify(location));
 
-      this.setState({ loading: true });
-      // fetch and set weather info
-      const info = await getWeatherFromLocation(
-        location.latitude,
-        location.longitude
-      );
-      this.setState({
-        loading: false,
-        weatherInfo: { ...info, location: location.name, id: locationKey }
-      });
+      this.setState({ loading: true, error: null });
+      try {
+        // fetch and set weather info
+        const info = await getWeatherFromLocation(
+          location.latitude,
+          location.longitude
+        );
+        this.setState({
+          loading: false,
+          weatherInfo: { ...info, location: location.name, id: locationKey }
+        });
+      } catch (error) {
+        console.log(error);
+        this.setState({
+          error: "Weather forecast is not available now. Please, try later!",
+          loading: false
+        });
+      }
     }
   };
 }
