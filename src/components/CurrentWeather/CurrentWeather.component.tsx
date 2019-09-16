@@ -51,6 +51,7 @@ class CurrentWeather extends React.Component<Props, State> {
             loading={loading}
             onChange={this.handleLocationChange}
             options={locationOptions}
+            title="Select a city"
           />
         </div>
 
