@@ -1,17 +1,20 @@
 import React from "react";
 import { Selector, SelectorOption } from "../Selector/Selector.component";
-import { WeatherView } from "../WeatherView/WeatherView.component";
+import {
+  WeatherView,
+  WeatherViewType
+} from "../WeatherView/WeatherView.component";
 import {
   Location,
   getLocations,
   Places,
   getOptionsFromMap
 } from "../../data/location.data";
-import { getWeatherFromLocation, WeatherInfo } from "../../data/weather.data";
+import { getWeatherFromLocation } from "../../data/weather.data";
 
 type State = {
   locationOptions: Array<SelectorOption>;
-  weatherInfo: WeatherInfo | null;
+  weatherInfo: WeatherViewType | null;
 };
 type Props = {};
 
@@ -58,7 +61,7 @@ class CurrentWeather extends React.Component<Props, State> {
         location.longitude
       );
       this.setState({
-        weatherInfo: { ...info, location: location.name }
+        weatherInfo: { ...info, location: location.name, id: locationKey }
       });
     }
   };

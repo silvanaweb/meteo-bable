@@ -4,17 +4,27 @@ import Skycons from "react-skycons";
 import { WeatherInfo } from "../../data/weather.data";
 import { colors } from "../../theme/colors";
 import "./WeatherView.css";
+import { Places } from "../../data/location.data";
+import { getLocalImage } from "../../utils/image";
+import { useWindowSize, WinSize } from "../../hooks/useWindowSize";
+
+export type WeatherViewType = WeatherInfo & { id: Places };
 
 type Props = {
-  weatherInfo: WeatherInfo | null;
+  weatherInfo: WeatherViewType | null;
 };
 const WeatherView: React.FC<Props> = ({ weatherInfo }) => {
+  const winSize: WinSize = useWindowSize();
+
   return (
     weatherInfo && (
       <div className="content-container">
         <div className="WeatherView">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/london-desktop.jpg`}
+            src={getLocalImage(
+              weatherInfo.id,
+              winSize.width < 600 ? "mobile" : "desktop"
+            )}
             alt={weatherInfo.location}
             className="WeatherView__image"
           />
