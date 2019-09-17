@@ -20,6 +20,9 @@ const WeatherView: React.FC<Props> = ({ loading, weatherInfo }) => {
   return (
     weatherInfo && (
       <div className="content-container">
+        <div className="WeatherView__summary">
+          {weatherInfo.summary} <span>in</span> {weatherInfo.location}
+        </div>
         <div className={`WeatherView ${loading ? "WeatherView--hide" : ""}`}>
           <img
             src={getLocalImage(
@@ -41,9 +44,6 @@ const WeatherView: React.FC<Props> = ({ loading, weatherInfo }) => {
                   autoplay={true}
                 />
               </div>
-            </div>
-            <div className="WeatherView__summary">
-              {weatherInfo.summary} <span>in</span> {weatherInfo.location}
             </div>
           </div>
         </div>

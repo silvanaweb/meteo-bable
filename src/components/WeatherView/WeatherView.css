@@ -17,7 +17,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   height: 100%;
   left: 0;
-  padding: var(--m-size);
+  padding: var(--s-size) 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -44,7 +44,7 @@
 }
 
 .WeatherView__summary {
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-style: italic;
 }
 
@@ -54,7 +54,7 @@
 
 @media (min-width: 600px) {
   .WeatherView__content {
-    padding: var(--l-size);
+    padding: var(--m-size) 0;
   }
   .WeatherView__temperature {
     font-size: 5rem;
@@ -63,22 +63,18 @@
     width: 14rem;
   }
   .WeatherView__summary {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 @media (min-width: 800px) {
   .WeatherView__content {
-    padding: var(--xxl-size);
+    padding: var(--l-size) 0;
   }
   .WeatherView__temperature {
     font-size: 6rem;
   }
   .WeatherView__icon {
     width: 18rem;
-  }
-  .WeatherView__summary {
-    font-size: 4rem;
-    width: 50%;
   }
 }
