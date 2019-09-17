@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrentWeather should render CurrentWeather correctly 1`] = `
+<Fragment>
+  <div
+    className="pb--xl"
+  >
+    <Component
+      loading={false}
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "London",
+            "value": "london",
+          },
+          Object {
+            "label": "Paris",
+            "value": "paris",
+          },
+          Object {
+            "label": "New York",
+            "value": "newyork",
+          },
+          Object {
+            "label": "Singapore",
+            "value": "singapore",
+          },
+          Object {
+            "label": "Sydney",
+            "value": "sydney",
+          },
+        ]
+      }
+      title="Select a city"
+    />
+  </div>
+  <ErrorView
+    message={null}
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+          "minHeight": 300,
+          "padding": "3rem 0",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "alignSelf": "center",
+            "left": "50%",
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translate(-50%, -50%)",
+            "zIndex": 1,
+          }
+        }
+      >
+        <Component
+          color="#026565"
+          loading={false}
+          size={50}
+          sizeUnit="px"
+        />
+      </div>
+      <WeatherView
+        loading={false}
+        weatherInfo={null}
+      />
+    </div>
+  </ErrorView>
+</Fragment>
+`;

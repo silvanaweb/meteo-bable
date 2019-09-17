@@ -38,6 +38,7 @@ class CurrentWeather extends React.Component<Props, State> {
       loading: false,
       error: null
     };
+    this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
   componentDidMount() {
@@ -69,11 +70,10 @@ class CurrentWeather extends React.Component<Props, State> {
     );
   }
 
-  handleLocationChange = async (locationOption: SelectorOption) => {
+  async handleLocationChange(locationOption: SelectorOption) {
     if (locationOption.value) {
       const locationKey: Places = locationOption.value as Places;
       const location: Location = this.locationsMap[locationKey];
-      console.log(JSON.stringify(location));
 
       this.setState({ loading: true, error: null });
       try {
@@ -94,7 +94,7 @@ class CurrentWeather extends React.Component<Props, State> {
         });
       }
     }
-  };
+  }
 }
 const spinnerStyle: React.CSSProperties = {
   alignSelf: "center",
