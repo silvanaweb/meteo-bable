@@ -2,10 +2,9 @@
 
 :root {
   --dark-grey: #363737;
-  --light-grey: #9ca0a0;
-  --primary-color: #026565;
-  --primary-color-lighter: #afd1d1;
-  --secondary-color: #dae2e2;
+  --light-grey: #c9cfd8;
+  --primary-color: #274472;
+  --secondary-color: #c3e0e5;
   /* font */
   --font-normal: 1.6rem;
   --font-medium: 2.5rem;
@@ -53,7 +52,6 @@ button {
 .pb--xl {
   padding-bottom: var(--xl-size);
 }
-
 
 button:disabled {
   cursor: default;

@@ -16,6 +16,7 @@ import { getWeatherFromLocation } from "../../data/weather.data";
 import { withRememberOption } from "../Helpers/RememberOption";
 import { ErrorView } from "../ErrorView/ErrorView.component";
 import { colors } from "../../theme/colors";
+import { When } from "../Helpers/When";
 
 const SelectorWithMemory = withRememberOption(Selector);
 
@@ -59,12 +60,18 @@ class CurrentWeather extends React.Component<Props, State> {
           />
         </div>
         <ErrorView message={error}>
-          <div style={WeatherContainerStyle}>
-            <div style={spinnerStyle}>
-              <PushSpinner size={50} color={colors.primary} loading={loading} />
+          <When condition={!!weatherInfo}>
+            <div style={WeatherContainerStyle}>
+              <div style={spinnerStyle}>
+                <PushSpinner
+                  size={50}
+                  color={colors.primary}
+                  loading={loading}
+                />
+              </div>
+              <WeatherView weatherInfo={weatherInfo} loading={loading} />
             </div>
-            <WeatherView weatherInfo={weatherInfo} loading={loading} />
-          </div>
+          </When>
         </ErrorView>
       </>
     );
