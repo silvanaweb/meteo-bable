@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render HomePage correctly 1`] = `
+<Fragment>
+  <Header />
+  <div
+    className="pt--xl pb--xl"
+  >
+    <CurrentWeather />
+  </div>
+</Fragment>
+`;

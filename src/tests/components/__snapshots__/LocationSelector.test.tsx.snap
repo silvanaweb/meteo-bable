@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selector should render Selector correctly 1`] = `
+<div
+  className="content-container"
+>
+  <When
+    condition={false}
+  >
+    <h3
+      className="text-align--center"
+    />
+  </When>
+  <div
+    className="LocationSelector__list"
+  >
+    <div
+      className="LocationSelector__item"
+      key="genre.value0"
+    >
+      <CheckButton
+        checked={false}
+        disabled={false}
+        name="london"
+        onChange={[Function]}
+        title="London"
+      />
+    </div>
+    <div
+      className="LocationSelector__item"
+      key="genre.value1"
+    >
+      <CheckButton
+        checked={false}
+        disabled={false}
+        name="paris"
+        onChange={[Function]}
+        title="Paris"
+      />
+    </div>
+    <div
+      className="LocationSelector__item"
+      key="genre.value2"
+    >
+      <CheckButton
+        checked={false}
+        disabled={false}
+        name="newyork"
+        onChange={[Function]}
+        title="New York"
+      />
+    </div>
+    <div
+      className="LocationSelector__item"
+      key="genre.value3"
+    >
+      <CheckButton
+        checked={false}
+        disabled={false}
+        name="singapore"
+        onChange={[Function]}
+        title="Singapore"
+      />
+    </div>
+    <div
+      className="LocationSelector__item"
+      key="genre.value4"
+    >
+      <CheckButton
+        checked={false}
+        disabled={false}
+        name="sydney"
+        onChange={[Function]}
+        title="Sydney"
+      />
+    </div>
+  </div>
+</div>
+`;

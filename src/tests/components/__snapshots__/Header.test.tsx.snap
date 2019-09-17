@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<header
+  className="Header text-align--center"
+>
+  <div
+    className="content-container"
+  >
+    Meteo Bable
+  </div>
+</header>
+`;
